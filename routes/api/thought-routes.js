@@ -1,10 +1,9 @@
-const router = require("express").Router()
-// require in object destructure mode the functions from userController
+const router = require("express").Router();
+const { getThoughts, getSingleThought, createThought, updateThought, deleteThought, createReaction, deleteReaction } = require("../../controllers/thoughts-contoller");
 
-router.route("/").get().post()
-router.route("/:thoughtId").get().delete().put()
-router.route("/:thoughtId/reactions").post()
-router.route("/:thoughtId/reactions/:reactionId").delete()
+router.route("/").get(getThoughts).post(createThought);
+router.route("/:thoughtId").get(getSingleThought).put(updateThought).delete(deleteThought);
+router.route("/:thoughtId/reactions").post(createReaction);
+router.route("/:thoughtId/reactions/:reactionId").delete(deleteReaction);
 
-
-module.exports = router
+module.exports = router;
