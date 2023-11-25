@@ -9,7 +9,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async getSingleThought(req, res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtId });
@@ -18,7 +17,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
@@ -27,7 +25,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async updateThought(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
@@ -43,7 +40,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async deleteThought(req, res) {
         try {
             const thought = await Thought.findOneAndDelete({
@@ -57,7 +53,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async createReaction(req, res) {
         const { reactionBody, username } = req.body;
         const { thoughtId } = req.params;
@@ -82,7 +77,6 @@ const thoughtsController = {
             res.status(500).json(err);
         }
     },
-
     async deleteReaction(req, res) {
         const { thoughtId, reactionId } = req.params;
 
@@ -100,7 +94,6 @@ const thoughtsController = {
             if (!updatedThought) {
                 return res.status(404).json({ message: "Thought not found" });
             }
-
             res.json(updatedThought);
         } catch (err) {
             res.status(500).json(err);
