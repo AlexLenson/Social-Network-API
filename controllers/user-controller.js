@@ -24,6 +24,21 @@ const userController = {
         } catch (err) {
             res.status(500).json(err);
         }
+    },
+    async updateUser(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $set: req.body },
+                { new: true }
+            )
+            if (!user) {
+                res.status(404).json({ message: "no user found with this id" })
+            }
+            res.json(user)
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
     
 }
