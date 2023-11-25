@@ -8,7 +8,7 @@ This project implements a robust API for a social networking web application usi
 - Add reactions to thoughts and manage them
 
 ## API Endpoints Visualization
-Here is a visualization of the social netowkr api endpoints using insomnia. GET, POST, PUT and DELTE routes can be seen for users and thoughts.
+Here is a visualization of the social network api endpoints using insomnia. GET, POST, PUT and DELTE routes can be seen for users and thoughts.
 
 ![screenshot](./images/insomnia.png)
 
